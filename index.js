@@ -121,7 +121,7 @@ function promptEmployee() {
     }
     employeeArr.push(employee);
 
-    if (employeeData.confirmAddEmployee) {
+    if (employeeData.confirmEmployee) {
       return promptEmployee(employeeArr);
     } else {
       return employeeArr;
