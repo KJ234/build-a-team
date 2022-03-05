@@ -36,3 +36,14 @@ No other collaborators for this project
 Testing was done for this project
 
 ## Questions
+
+Contact me on
+
+- GitHub - https://github.com/KJ234/build-a-team.git
+
+* Email - komaljaved308@gmail.com
+
+## Licencse
+
+<img src=https://img.shields.io/badge/License-MIT-yellow.svg>
+
