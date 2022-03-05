@@ -2,7 +2,7 @@ const managerHTML = (manager) => {
   return `
     <div class="dist card bg-primary mb-3" style="width: 18rem;" >
     <div class="card-header">
-      Manager:  <strong> ${manager.name} </strong> <i class="bi bi-envelope-paper-fill"></i>
+      Manager:  ${manager.name} <i class="bi bi-envelope-paper-fill"></i>
       </span>
     </div>
     <ul class="list-group list-group-flush">
@@ -18,11 +18,10 @@ const engineerHTML = (engineer) => {
   return `
     <div class="dist card bg-success mb-3" style="width: 18rem;" >
     <div class="card-header">
-      Engineer <i class="fas fa-chalkboard-teacher"></i>
+      Engineer: ${engineer.name} <i class="fas fa-chalkboard-teacher"></i>
       </span>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name:${engineer.name}</li>
       <li class="list-group-item">Employee ID:${engineer.id}</li>
       <li class="list-group-item">GitHub:<a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
       <li class="list-group-item">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></li>
@@ -34,11 +33,11 @@ const internHTML = (intern) => {
   return `
     <div class="dist card bg-info mb-3" style="width: 18rem;" >
     <div class="card-header">
-      Intern <i class="fas fa-baby"></i>
+      Intern: ${intern.name} <i class="fas fa-baby"></i>
       </span>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name:${intern.name}</li>
+    
       <li class="list-group-item">Employee ID:${intern.id}</li>
       <li class="list-group-item">School Name:${intern.school}</li>
       <li class="list-group-item">Email:<a href="mailto:${intern.email}">${intern.email}</a></li>
