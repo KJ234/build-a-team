@@ -14,6 +14,59 @@ const managerHTML = (manager) => {
     
     `;
 };
+const engineerHTML = (engineer) => {
+  return `
+    <div class="dist card bg-success mb-3" style="width: 18rem;" >
+    <div class="card-header">
+      Engineer <i class="fas fa-chalkboard-teacher"></i>
+      </span>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name:${engineer.name}</li>
+      <li class="list-group-item">Employee ID:${engineer.id}</li>
+      <li class="list-group-item">GitHub:<a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
+      <li class="list-group-item">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></li>
+    </ul>
+  </div>
+    `;
+};
+const internHTML = (intern) => {
+  return `
+    <div class="dist card bg-info mb-3" style="width: 18rem;" >
+    <div class="card-header">
+      Intern <i class="fas fa-baby"></i>
+      </span>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name:${intern.name}</li>
+      <li class="list-group-item">Employee ID:${intern.id}</li>
+      <li class="list-group-item">School Name:${intern.school}</li>
+      <li class="list-group-item">Email:<a href="mailto:${intern.email}">${intern.email}</a></li>
+    </ul>
+  </div>
+    `;
+};
+const generatePage = (employeeArr) => {
+  empList = [];
+  for (let i = 0; employeeArr.length > i; i++) {
+    const role = employeeArr[i].getRole();
+
+    if (role === "Manager") {
+      empList.push(managerHTML(employeeArr[i]));
+    }
+    if (role === "Engineer") {
+      empList.push(engineerHTML(employeeArr[i]));
+    }
+    if (role === "Intern") {
+      empList.push(internHTML(employeeArr[i]));
+    }
+  }
+  const mergedTeam = empList.join("");
+  return HTMLPage(mergedTeam);
+};
+
+const HTMLPage = (mergedTeam) => {
+  return `
     <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,6 +102,7 @@ const managerHTML = (manager) => {
 </nav>
 </header>
       <main>
+    ${mergedTeam}
       </main>
       
   </body>
