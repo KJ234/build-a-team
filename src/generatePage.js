@@ -41,3 +41,6 @@
   </html> 
     `;
 };
+
+// export to index.html
+module.exports = generatePage;
