@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+const managerHTML = (manager) => {
+  return `
+    <div class="dist card bg-primary mb-3" style="width: 18rem;" >
+    <div class="card-header">
+      Manager:  <strong> ${manager.name} </strong> <i class="bi bi-envelope-paper-fill"></i>
+      </span>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Employee ID:${manager.id}</li>
+      <li class="list-group-item">Office Number:${manager.officeNumber}</li>
+      <li class="list-group-item">Email:<a href="mailto:${manager.email}">${manager.email}</a></li>
+    </ul>
+  </div>
+    
+    `;
+};
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
