@@ -7,6 +7,9 @@ const Intern = require("./lib/Intern.js");
 
 const generatePage = require("./src/generatePage");
 
+const employeeArr = [];
+
+// adding questions
 const questions = [
   {
     type: "list",
@@ -102,3 +105,47 @@ const questions = [
     default: false,
   },
 ];
+
+// Adding new employee
+function promptEmployee() {
+  return inquirer.prompt(questions).then((employeeData) => {
+    let { role, name, id, email, github, school, officeNumber } = employeeData;
+    if (role === "Manager") {
+      employee = new Manager(name, id, email, officeNumber);
+    }
+    if (role === "Engineer") {
+      employee = new Engineer(name, id, email, github);
+    }
+    if (role === "Intern") {
+      employee = new Intern(name, id, email, school);
+    }
+    employeeArr.push(employee);
+
+    if (employeeData.confirmAddEmployee) {
+      return promptEmployee(employeeArr);
+    } else {
+      return employeeArr;
+    }
+  });
+}
+const writeFile = (fileContent) => {
+  fs.writeFile("./dist/index.html", fileContent, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      console.log("File created!");
+    }
+  });
+};
+
+promptEmployee()
+  .then((employeeArr) => {
+    return generatePage(employeeArr);
+  })
+  .then((pageHTML) => {
+    return writeFile(pageHTML);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
