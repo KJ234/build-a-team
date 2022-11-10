@@ -1,8 +1,8 @@
 const managerHTML = (manager) => {
   return `
-    <div class="dist card bg-primary mb-3" style="width: 18rem;" >
+    <div class="dist card bg-primary mb-3" style="width: 18rem; margin:20px;" >
     <div class="card-header">
-      Manager:  ${manager.name} <i class="bi bi-envelope-paper-fill"></i>
+     Manager:  ${manager.name}  <i class="bi bi-envelope-paper-fill"></i>
       </span>
     </div>
     <ul class="list-group list-group-flush">
@@ -46,7 +46,7 @@ const internHTML = (intern) => {
     `;
 };
 const generatePage = (employeeArr) => {
-  empList = [];
+  let empList = [];
   for (let i = 0; employeeArr.length > i; i++) {
     const role = employeeArr[i].getRole();
 
@@ -112,4 +112,4 @@ const HTMLPage = (mergedTeam) => {
 };
 
 // export to index.html
-module.exports = generatePage;
+export default generatePage;

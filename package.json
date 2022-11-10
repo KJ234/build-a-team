@@ -4,6 +4,27 @@
     "jest": "^27.5.1"
   },
   "scripts": {
-    "test": "node test.js"
-  }
+    "test": "node test.js",
+    "start": "node index.js"
+  },
+  "name": "build-a-team",
+  "description": "## Table of Contents",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KJ234/build-a-team.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KJ234/build-a-team/issues"
+  },
+  "homepage": "https://github.com/KJ234/build-a-team#readme"
 }

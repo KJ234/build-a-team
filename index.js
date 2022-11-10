@@ -1,11 +1,11 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
+import inquirer from "inquirer";
+import fs from 'fs'
 
-const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
+import Manager from './lib/Manager.js'
+import Engineer from './lib/Engineer.js'
+import Apprentice from './lib/Apprentice.js'
 
-const generatePage = require("./src/generatePage");
+import generatePage from './src/generatePage.js'
 
 const employeeArr = [];
 
@@ -15,7 +15,7 @@ const questions = [
     type: "list",
     name: "role",
     message: "Please indicate the role of the employee below.",
-    choices: ["Manager", "Engineer", "Intern"],
+    choices: ["Manager", "Engineer", "Apprentice"],
   },
   {
     type: "input",
@@ -87,8 +87,8 @@ const questions = [
   {
     type: "input",
     name: "school",
-    message: "Please enter the name of the interns school.",
-    when: (schoolInput) => schoolInput.role === "Intern",
+    message: "Please enter the name of the apprentice's school.",
+    when: (schoolInput) => schoolInput.role === "Apprentice",
     validate: (schoolInput) => {
       if (schoolInput) {
         return true;
@@ -110,14 +110,15 @@ const questions = [
 function promptEmployee() {
   return inquirer.prompt(questions).then((employeeData) => {
     let { role, name, id, email, github, school, officeNumber } = employeeData;
+    let employee;
     if (role === "Manager") {
       employee = new Manager(name, id, email, officeNumber);
     }
     if (role === "Engineer") {
       employee = new Engineer(name, id, email, github);
     }
-    if (role === "Intern") {
-      employee = new Intern(name, id, email, school);
+    if (role === "Apprentice") {
+      employee = new Apprentice(name, id, email, school);
     }
     employeeArr.push(employee);
 
